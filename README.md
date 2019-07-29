@@ -8,9 +8,9 @@ Extracting arrays of words and optionally numbers for Node.js and the browser. T
 * extract(string-of-words, \<options object\>)
 
 ### options
-#### {numbers: false} // default. true/false
+* {numbers: false} // default. true/false
 
-#### {lowercase: false} // default. true/false
+* {lowercase: false} // default. true/false
 
 ### stringify
 ...
