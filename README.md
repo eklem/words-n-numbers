@@ -13,7 +13,7 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 ### Node.js
 
 ```javascript
-const wnn = require('words-and-numbers')
+const wnn = require('words-n-numbers')
 // wnn available
 ```
 
