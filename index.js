@@ -1,5 +1,5 @@
 const defaultRegex   = { words: 'a-ｚ', numbers: '0-9' }
-const defaultOptions = { lowercase: false, alsoNumbers: false }
+const defaultOptions = { toLowercase: false, numbersAlso: false }
 
 exports.extract = function(string, regex, options) {
   // Populate regex and options objects
@@ -13,21 +13,20 @@ exports.extract = function(string, regex, options) {
   }
 
   // string to lowercase ?
-  if (options.lowercase === true) {
+  if (options.toLowercase === true) {
     string = string.toLowerCase()
   }
 
   // Join words and numbers to a regex ?
-  if (options.alsoNumbers === true) {
+  if (options.numbersAlso === true) {
     regex = '[' + regex.words + regex.numbers + ']+'
   }
-  if (options.alsoNumbers === false) {
+  if (options.numbersAlso === false) {
     regex = '[' + regex.words + ']+'
   }
 
   // regex constructor
   regex = new RegExp( regex, 'giu' )
-  console.log(regex)
 
   // match words (and numbers)
   let wordsAndNumbers = []  

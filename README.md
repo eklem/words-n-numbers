@@ -40,16 +40,16 @@ Returns an array of words and optionally numbers.
 * extract(string-of-text, \<regex-object\>, \<options-object\>)
 
 ### regex
-```JSON
+```javascript
 { words: 'a-zA-Z', numbers: '0-9' }
 ```
 
 ### options
-```JSON
+```javascript
 { lowercase: false, alsoNumbers: false }
 ```
 * Convert to lowercase: true / false (default)
-* Match alsoNumbers: true / false (default)
+* Extract numbersAlso: true / false (default)
 
 ## PR's welcome
 PR's for written language specific regex are more than welcome =)

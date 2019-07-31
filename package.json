@@ -1,0 +1,33 @@
+{
+  "name": "words-and-numbers",
+  "version": "0.0.1",
+  "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
+  "main": "index.js",
+  "scripts": {
+    "compile-for-browser": "webpack",
+    "empty-sandbox": "rm -rf test/sandbox && mkdir test/sandbox",
+    "test": "npm run empty-sandbox && npm run compile-for-browser && tape ./test/test.js && cat test/sandbox/bundle.js | tape-run && rm -rf test/sandbox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklem/words-and-numbers.git"
+  },
+  "keywords": [
+    "nlp",
+    "regex",
+    "words"
+  ],
+  "devDependencies": {
+    "standard": "^13.0.2",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "tape": "^4.11.0",
+    "tape-run": "^6.0.0"
+  },
+  "author": "Espen Klem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eklem/words-and-numbers/issues"
+  },
+  "homepage": "https://github.com/eklem/words-and-numbers#readme"
+}
