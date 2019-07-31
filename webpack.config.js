@@ -3,26 +3,26 @@ const package = require('./package.json')
 const glob = require('glob')
 
 module.exports =  [
-  // Generating browser version of wordsAndNumbers
+  // Generating browser version of words'n'Numbers
   {
     mode: 'production',
     entry: './index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'wordsAndNumbers.' + package.version+ '.js',
-      library: 'wan'
+      filename: 'words-n-numbers.' + package.version+ '.js',
+      library: 'wnn'
     },
     devtool: "none", // prevent webpack from using eval() on my module
   },
 
-  // Generating a latest browser version of wordsAndNumbers (same as latest version number)
+  // Generating a latest browser version of words'n'Numbers (same as latest version number)
   {
     mode: 'production',
     entry: './index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'wordsAndNumbers.latest.js',
-      library: 'wan'
+      filename: 'words-n-numbers.latest.js',
+      library: 'wnn'
     },
     devtool: "none", // prevent webpack from using eval() on my module
   },

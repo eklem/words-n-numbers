@@ -1,5 +1,5 @@
 {
-  "name": "words-and-numbers",
+  "name": "words-n-numbers",
   "version": "0.0.1",
   "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
   "main": "index.js",
