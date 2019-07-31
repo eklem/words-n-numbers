@@ -1,7 +1,7 @@
 const defaultRegex   = { words: 'a-ｚ', numbers: '0-9' }
 const defaultOptions = { lowercase: false, alsoNumbers: false }
 
-exports.match = function(string, regex, options) {
+exports.extract = function(string, regex, options) {
   // Populate regex and options objects
   regex = {
     ...defaultRegex,
@@ -39,6 +39,9 @@ exports.match = function(string, regex, options) {
 // PR's are welcome =)
 // Form:
 // exports.[language-code] = { words: [regex], numbers: [regex] }
+
+// English
+exports.en = { words: 'a-zA-Z'}
 
 // Norwegian
 exports.no = { words: 'a-zæøåA-ZÆØÅ'}

@@ -23,20 +23,33 @@ const wan = require('words-and-numbers')
 
 ```
 
+## Use
+
+### default regex
+
+### Language specific regex
+
+### Custom regex
+
 ## API
 
 ### extract
 
 Returns an array of words and optionally numbers.
 
-* extract(string-of-words, \<options object\>)
+* extract(string-of-text, \<regex-object\>, \<options-object\>)
+
+### regex
+```JSON
+{ words: 'a-zA-Z', numbers: '0-9' }
+```
 
 ### options
-* {numbers: false} // default. true/false
+```JSON
+{ lowercase: false, alsoNumbers: false }
+```
+* Convert to lowercase: true / false (default)
+* Match alsoNumbers: true / false (default)
 
-* {lowercase: false} // default. true/false
-
-### stringify
-
-* stringify(string-of-words, \<options object\>)
-
+## PR's welcome
+PR's for written language specific regex are more than welcome =)
