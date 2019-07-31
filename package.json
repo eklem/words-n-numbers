@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eklem/words-and-numbers.git"
+    "url": "git+https://github.com/eklem/words-n-numbers.git"
   },
   "keywords": [
     "nlp",
@@ -27,7 +27,7 @@
   "author": "Espen Klem",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eklem/words-and-numbers/issues"
+    "url": "https://github.com/eklem/words-n-numbers/issues"
   },
-  "homepage": "https://github.com/eklem/words-and-numbers#readme"
+  "homepage": "https://github.com/eklem/words-n-numbers#readme"
 }
