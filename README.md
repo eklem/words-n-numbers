@@ -3,6 +3,11 @@ Extracting arrays of words and optionally numbers from strings. For Node.js and 
 
 Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![MIT License][license-image]][license-url]
+[![Build Status][travis-image]][travis-url]
+
 ## Initiating
 
 ### Node.js
@@ -53,3 +58,12 @@ Returns an array of words and optionally numbers.
 
 ## PR's welcome
 PR's for written language specific regex are more than welcome =)
+
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+[npm-url]: https://npmjs.org/package/words-n-numbers
+[npm-version-image]: http://img.shields.io/npm/v/words-n-numbers.svg?style=flat
+[npm-downloads-image]: http://img.shields.io/npm/dm/words-n-numbers.svg?style=flat
+[travis-url]: http://travis-ci.org/eklem/words-n-numbers
+[travis-image]: http://img.shields.io/travis/eklem/words-n-numbers.svg?style=flat
