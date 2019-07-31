@@ -13,14 +13,14 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 ### Node.js
 
 ```javascript
-const wan = require('words-and-numbers')
+const wnn = require('words-and-numbers')
 // wnn available
 ```
 
 ### Browser
 
 ```html
-<script src="wan.js"></script>
+<script src="wnn.js"></script>
 
 <script>
   //wnn available
