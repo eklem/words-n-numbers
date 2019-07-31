@@ -46,7 +46,7 @@ Returns an array of words and optionally numbers.
 
 ### options
 ```javascript
-{ lowercase: false, alsoNumbers: false }
+{ toLowercase: false, numbersAlso: false }
 ```
 * Convert to lowercase: true / false (default)
 * Extract numbersAlso: true / false (default)
