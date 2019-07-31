@@ -1,27 +1,33 @@
-let defaultOptions   = { words: 'a-ｚ', numbers: '0-9', lowercase: false, number: false }
+const defaultRegex   = { words: 'a-ｚ', numbers: '0-9' }
+const defaultOptions = { lowercase: false, alsoNumbers: false }
 
-exports.match = function(string, options) {
-  // Populate options and regex object
+exports.match = function(string, regex, options) {
+  // Populate regex and options objects
+  regex = {
+    ...defaultRegex,
+    ...regex
+  }
   options = {
     ...defaultOptions,
     ...options
   }
-  console.log(options)
 
   // string to lowercase ?
   if (options.lowercase === true) {
     string = string.toLowerCase()
   }
-  // Join words and numbers regex ?
-  if (options.number === true) {
-    regex = '[' + options.words + options.numbers + ']+'
+
+  // Join words and numbers to a regex ?
+  if (options.alsoNumbers === true) {
+    regex = '[' + regex.words + regex.numbers + ']+'
   }
-  if (options.number === false) {
-    regex = '[' + options.words + ']+'
-    console.log(regex)
+  if (options.alsoNumbers === false) {
+    regex = '[' + regex.words + ']+'
   }
+
   // regex constructor
   regex = new RegExp( regex, 'giu' )
+  console.log(regex)
 
   // match words (and numbers)
   let wordsAndNumbers = []  
@@ -31,5 +37,8 @@ exports.match = function(string, options) {
 
 // Written language specific regex
 // PR's are welcome =)
-// Object:
-// const [language-code] = { words: [regex], numbers: [regex] }
+// Form:
+// exports.[language-code] = { words: [regex], numbers: [regex] }
+
+// Norwegian
+exports.no = { words: 'a-zæøåA-ZÆØÅ'}
