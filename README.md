@@ -84,8 +84,9 @@ wnn.extract(stringOfWords, { words: 'a-z\'' }, { numbersAlso: true })
 ### extract
 
 Returns an array of words and optionally numbers.
-
-* extract(string-of-text, \<regex-object\>, \<options-object\>)
+```javascript
+extract(string-of-text, \<regex-object\>, \<options-object\>)
+````
 
 ### regex object
 ```javascript
