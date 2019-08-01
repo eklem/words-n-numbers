@@ -115,7 +115,7 @@ Next languages to be added:
 * [Russian](https://github.com/eklem/words-n-numbers/issues/8)
 
 #### PR's welcome
-PR's on written language specific regex'es are more than welcome =)
+PR's on written language specific regex'es are more than welcome. Or anything else for that matter =)
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
