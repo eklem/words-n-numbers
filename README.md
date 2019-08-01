@@ -95,7 +95,6 @@ Returns an array of words and optionally numbers.
 // /[[letter-regex][number-regex]]]+/giu]
 ```
 
-
 ### options object
 ```javascript
 { toLowercase: [true / false], numbersAlso: [ true / false ] }
@@ -103,9 +102,19 @@ Returns an array of words and optionally numbers.
 * Convert toLowercase: Boolean - true / false (default)
 * Extract numbersAlso: Boolean - true / false (default)
 
-## PR's welcome
-PR's for written language specific regex are more than welcome =)
+### languages supported
+We got language objects for:
+* `default` - All Latin characters
+* `en` - English
+* `no` - Norwegian
 
+Next languages to be added:
+* [Chinese simplified](https://github.com/eklem/words-n-numbers/issues/7)
+* [Hindi](https://github.com/eklem/words-n-numbers/issues/6)
+* [Russian](https://github.com/eklem/words-n-numbers/issues/8)
+
+#### PR's welcome
+PR's on written language specific regex'es are more than welcome =)
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
