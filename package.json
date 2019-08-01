@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,9 @@
   "keywords": [
     "nlp",
     "regex",
-    "words"
+    "words",
+    "numbers",
+    "extract"
   ],
   "devDependencies": {
     "standard": "^13.0.2",

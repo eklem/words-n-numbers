@@ -30,11 +30,54 @@ const wnn = require('words-n-numbers')
 
 ## Use
 
+The default regex catches every unicode character from `a` to `ｚ`, which is different than the regular unicode `z`. By this you get every [Latin unicode character](https://en.wikipedia.org/wiki/Latin_script_in_Unicode) in this table.
+
 ### default regex
+
+#### Only words
+```javascript
+let stringOfWords = 'A 1000000 dollars baby!'
+wnn.extract(stringOfWords)
+// returns ['A', 'dollars', 'baby']
+```
+
+#### Only words, converted to lowercase
+```javascript
+let stringOfWords = 'A 1000000 dollars baby!'
+wnn.extract(stringOfWords, notdefined, { toLowercase: true })
+// returns ['a', 'dollars', 'baby']
+```
+
+#### Words and numbers
+```javascript
+let stringOfWords = 'A 1000000 dollars baby!'
+wnn.extract(stringOfWords, notdefined, { numbersAlso: true })
+// returns ['a', '1000000', 'dollars', 'baby']
+```
 
 ### Language specific regex
 
+#### English regex (skipping the Norwegian characters)
+```javascript
+let stringOfWords = 'Vær, vår og ødeleggelse!'
+wnn.extract(stringOfWords, wnn.en)
+// returns ['V', 'r', 'v', 'r', 'og', 'deleggelse']
+```
+
+#### Norwegian regex
+```javascript
+let stringOfWords = 'Vær, vår og ødeleggelse!'
+wnn.extract(stringOfWords, wnn.en)
+// returns ['Vær', 'vår', 'og', 'ødeleggelse']
+```
+
 ### Custom regex
+
+```javascript
+let stringOfWords = 'This happens at 5 o\'clock !!!'
+wnn.extract(stringOfWords, { words: 'a-z\'' }, { numbersAlso: true })
+// returns ['This', 'happens', 'at', '5', 'o\'clock']
+```
 
 ## API
 
@@ -44,17 +87,21 @@ Returns an array of words and optionally numbers.
 
 * extract(string-of-text, \<regex-object\>, \<options-object\>)
 
-### regex
+### regex object
 ```javascript
-{ words: 'a-zA-Z', numbers: '0-9' }
+{ words: '[ letter-regex ]', numbers: '[ number-regex ]' }
+
+// will create a regex like this_:
+// /[[letter-regex][number-regex]]]+/giu]
 ```
 
-### options
+
+### options object
 ```javascript
-{ toLowercase: false, numbersAlso: false }
+{ toLowercase: [true / false], numbersAlso: [ true / false ] }
 ```
-* Convert to lowercase: true / false (default)
-* Extract numbersAlso: true / false (default)
+* Convert toLowercase: Boolean - true / false (default)
+* Extract numbersAlso: Boolean - true / false (default)
 
 ## PR's welcome
 PR's for written language specific regex are more than welcome =)

@@ -8,7 +8,7 @@ test('extract words only, default regex and options', function (t) {
   t.looseEqual(newArray, [ 'I', 'want', 'only', 'words', 'I', 'told', 'you', 'a', 'times' ])
 })
 
-test('extract words and numbers, custon regex', function (t) {
+test('extract words and numbers, custom regex', function (t) {
   t.plan(1)
   const oldString = 'This happens 5 o\'clock !!!'
   const newArray = wnn.extract(oldString, { words: 'a-z\'' }, { numbersAlso: true })
