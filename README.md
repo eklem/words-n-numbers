@@ -32,23 +32,21 @@ const wnn = require('words-n-numbers')
 
 The default regex should catch every unicode character from for every language. 
 
-### default regex
-
-#### Only words
+### Only words
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords)
 // returns ['A', 'dollars', 'baby']
 ```
 
-#### Only words, converted to lowercase
+### Only words, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
-#### Words and numbers, predefined regex for words and numbers, converted to lowercase
+### Words and numbers, predefined regex for words and numbers, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords, { regex: wnn.wordsAndNumbers, toLowercase: true })
@@ -56,7 +54,6 @@ wnn.extract(stringOfWords, { regex: wnn.wordsAndNumbers, toLowercase: true })
 ```
 
 ### Custom regex
-
 ```javascript
 let stringOfWords = 'This happens at 5 o\'clock !!!'
 wnn.extract(stringOfWords, { regex: '[a-z\'0-9]+' })
