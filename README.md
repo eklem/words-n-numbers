@@ -46,7 +46,7 @@ wnn.extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
-### Words and numbers, predefined regex for words and numbers, converted to lowercase
+### Predefined regex for words and numbers, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords, { regex: wnn.wordsAndNumbers, toLowercase: true })
