@@ -1,12 +1,20 @@
-const defaultRegex   = { words: 'a-ｚ', numbers: '0-9' }
-const defaultOptions = { toLowercase: false, numbersAlso: false }
+// Default. Only words. All languages
+const words = '\\p{Alpha}+'
 
-exports.extract = function(string, regex, options) {
+// Only numbers, needs some work for real life numbers
+const numbers = '\\p{Number}+'
+
+// Words and numbers. All lanugages. Numbers needs some work for real life numbers
+const wordsAndNumbers = '\\p{Alpha}+|\\p{Number}+'
+
+// Default options object
+const defaultOptions = {
+  regex: words,
+  toLowercase: false
+}
+
+exports.extract = function(string, options) {
   // Populate regex and options objects
-  regex = {
-    ...defaultRegex,
-    ...regex
-  }
   options = {
     ...defaultOptions,
     ...options
@@ -17,16 +25,8 @@ exports.extract = function(string, regex, options) {
     string = string.toLowerCase()
   }
 
-  // Join words and numbers to a regex ?
-  if (options.numbersAlso === true) {
-    regex = '[' + regex.words + regex.numbers + ']+'
-  }
-  if (options.numbersAlso === false) {
-    regex = '[' + regex.words + ']+'
-  }
-
   // regex constructor
-  regex = new RegExp( regex, 'giu' )
+  regex = new RegExp( options.regex, 'giu' )
 
   // match words (and numbers)
   let wordsAndNumbers = []  
@@ -34,13 +34,7 @@ exports.extract = function(string, regex, options) {
   return wordsAndNumbers
 }
 
-// Written language specific regex
-// PR's are welcome =)
-// Form:
-// exports.[language-code] = { words: [regex], numbers: [regex] }
 
-// English
-exports.en = { words: 'a-zA-Z'}
-
-// Norwegian
-exports.no = { words: 'a-zæøåA-ZÆØÅ'}
+exports.words = words
+exports.numbers = numbers
+exports.wordsAndNumbers = wordsAndNumbers

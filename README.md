@@ -1,5 +1,5 @@
 # Words'n'numbers
-Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z]. The goal is to support all languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code). Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
+Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z]. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
 
 Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
@@ -30,7 +30,7 @@ const wnn = require('words-n-numbers')
 
 ## Use
 
-The default regex catches every unicode character from `a` to `ｚ`, which is different than the regular unicode `z`. By this you get every [Latin unicode character](https://en.wikipedia.org/wiki/Latin_script_in_Unicode) in this table.
+The default regex should catch every unicode character from for every language. 
 
 ### default regex
 
@@ -44,78 +44,54 @@ wnn.extract(stringOfWords)
 #### Only words, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
-wnn.extract(stringOfWords, notdefined, { toLowercase: true })
+wnn.extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
-#### Words and numbers
+#### Words and numbers, predefined regex for words and numbers, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
-wnn.extract(stringOfWords, notdefined, { numbersAlso: true })
+wnn.extract(stringOfWords, { regex: wnn.wordsAndNumbers, toLowercase: true })
 // returns ['a', '1000000', 'dollars', 'baby']
-```
-
-### Language specific regex
-
-#### English regex (skipping the Norwegian characters)
-```javascript
-let stringOfWords = 'Vær, vår og ødeleggelse!'
-wnn.extract(stringOfWords, wnn.en)
-// returns ['V', 'r', 'v', 'r', 'og', 'deleggelse']
-```
-
-#### Norwegian regex
-```javascript
-let stringOfWords = 'Vær, vår og ødeleggelse!'
-wnn.extract(stringOfWords, wnn.en)
-// returns ['Vær', 'vår', 'og', 'ødeleggelse']
 ```
 
 ### Custom regex
 
 ```javascript
 let stringOfWords = 'This happens at 5 o\'clock !!!'
-wnn.extract(stringOfWords, { words: 'a-z\'' }, { numbersAlso: true })
+wnn.extract(stringOfWords, { regex: '[a-z\'0-9]+' })
 // returns ['This', 'happens', 'at', '5', 'o\'clock']
 ```
 
 ## API
 
-### extract
+### Extract function
 
 Returns an array of words and optionally numbers.
 ```javascript
-extract(string-of-text, \<regex-object\>, \<options-object\>)
-````
-
-### regex object
-```javascript
-{ words: '[ letter-regex ]', numbers: '[ number-regex ]' }
-
-// will create a regex like this_:
-// /[[letter-regex][number-regex]]]+/giu]
+wnn.extract(string-of-text, \<options-object\>)
 ```
 
-### options object
+### Options object
 ```javascript
-{ toLowercase: [true / false], numbersAlso: [ true / false ] }
+{
+  regex: '[custom or predefined regex]',  // defaults to wnn.words
+  toLowercase: [true / false]             // defaults to false
+}
 ```
-* Convert toLowercase: Boolean - true / false (default)
-* Extract numbersAlso: Boolean - true / false (default)
 
-### languages supported
-We got language objects for:
-* `default` - All Latin characters
-* `en` - English
-* `no` - Norwegian
+### Predefined regex'es
+```javascript
+wnn.words            // only words, any language <-- default
+wnn.numbers          // only numbers, any language
+wnn.wordsAndNumbers  // words and numbers, any language
+```
 
-Next languages to be added:
-* [Chinese simplified](https://github.com/eklem/words-n-numbers/issues/7)
-* [Hindi](https://github.com/eklem/words-n-numbers/issues/6)
-* [Russian](https://github.com/eklem/words-n-numbers/issues/8)
+### Languages supported
+Supports all languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code), and more. Some languages like Japanese and Chinese simplified needs to be tokenized. May add tokenizers at a later stage.
 
 #### PR's welcome
-PR's on written language specific regex'es are more than welcome. Or anything else for that matter =)
+PR's and issues are more than welcome =)
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
