@@ -69,7 +69,7 @@ wnn.extract(stringOfWords, { regex: '[a-z\'0-9]+' })
 
 Returns an array of words and optionally numbers.
 ```javascript
-wnn.extract(string-of-text, \<options-object\>)
+wnn.extract(stringOfText, \<options-object\>)
 ```
 
 ### Options object
