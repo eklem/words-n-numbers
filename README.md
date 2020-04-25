@@ -7,7 +7,7 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 [![NPM downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
 [![Build Status][travis-image]][travis-url]
-[![Known Vulnerabilities[snyk-image]][snyk-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 
 ## Initiating
