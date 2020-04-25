@@ -13,7 +13,7 @@ const defaultOptions = {
   toLowercase: false
 }
 
-exports.extract = function(string, options) {
+exports.extract = function (string, options) {
   // Populate regex and options objects
   options = {
     ...defaultOptions,
@@ -26,14 +26,13 @@ exports.extract = function(string, options) {
   }
 
   // regex constructor
-  regex = new RegExp( options.regex, 'giu' )
+  const regex = new RegExp(options.regex, 'giu')
 
   // match words (and numbers)
-  let wordsAndNumbers = []  
+  let wordsAndNumbers = []
   wordsAndNumbers = string.match(regex)
   return wordsAndNumbers
 }
-
 
 exports.words = words
 exports.numbers = numbers

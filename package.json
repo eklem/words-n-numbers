@@ -1,12 +1,12 @@
 {
   "name": "words-n-numbers",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
   "main": "index.js",
   "scripts": {
     "compile-for-browser": "webpack",
     "empty-sandbox": "rm -rf test/sandbox && mkdir test/sandbox",
-    "test": "npm run empty-sandbox && npm run compile-for-browser && tape ./test/test.js && cat test/sandbox/bundle.js | tape-run && rm -rf test/sandbox"
+    "test": "npm run empty-sandbox && standard --fix \"./index.js\" \"/test/*.js\" && npm run compile-for-browser && tape ./test/test.js && cat test/sandbox/bundle.js | tape-run && rm -rf test/sandbox"
   },
   "repository": {
     "type": "git",
