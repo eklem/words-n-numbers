@@ -1,5 +1,5 @@
 # Words'n'numbers
-Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z]. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
+Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z]. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
 
 Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
@@ -51,8 +51,29 @@ wnn.extract(stringOfWords, { toLowercase: true })
 ### Predefined regex for words and numbers, converted to lowercase
 ```javascript
 let stringOfWords = 'A 1000000 dollars baby!'
-wnn.extract(stringOfWords, { regex: wnn.wordsAndNumbers, toLowercase: true })
+wnn.extract(stringOfWords, { regex: wnn.wordsNumbers, toLowercase: true })
 // returns ['a', '1000000', 'dollars', 'baby']
+```
+
+### Predefined regex for words and emoticons, converted to lowercase
+```javascript
+let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+wnn.extract(stringOfWords, { regex: wnn.wordsEmojis, toLowercase: true })
+// returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢' ]
+```
+
+### Predefined regex for numbers and emoticons
+```javascript
+let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+wnn.extract(stringOfWords, { regex: wnn.numbersEmojis, toLowercase: true })
+// returns [ '2000', '👌😄', '😢' ]
+```
+
+### Predefined regex for words, numbers and emoticons, converted to lowercase
+```javascript
+let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+wnn.extract(stringOfWords, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
+// returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
 ### Custom regex
@@ -81,13 +102,17 @@ wnn.extract(stringOfText, \<options-object\>)
 
 ### Predefined regex'es
 ```javascript
-wnn.words            // only words, any language <-- default
-wnn.numbers          // only numbers, any language
-wnn.wordsAndNumbers  // words and numbers, any language
+wnn.words              // only words, any language <-- default
+wnn.numbers            // only numbers
+wnn.emojis             // only emojis
+wnn.wordsNumbers       // words (any language) and numbers
+wnn.wordsEmojis        // words (any language) and emojis
+wnn.numbersEmojis      // numbers and emojis
+wnn.wordsNumbersEmojis // words (any language), numbers and emojis
 ```
 
 ### Languages supported
-Supports all languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code), and more. Some languages like Japanese and Chinese simplified needs to be tokenized. May add tokenizers at a later stage.
+Supports most languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code), and others too. Some languages like Japanese and Chinese simplified needs to be tokenized. May add tokenizers at a later stage.
 
 #### PR's welcome
 PR's and issues are more than welcome =)
