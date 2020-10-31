@@ -35,63 +35,63 @@ const wnn = require('words-n-numbers')
 The default regex should catch every unicode character from for every language. 
 
 ### Only words
-```javascript
+```javaScript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords)
 // returns ['A', 'dollars', 'baby']
 ```
 
 ### Only words, converted to lowercase
-```javascript
+```javaScript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
 ### Predefined regex for words and numbers, converted to lowercase
-```javascript
+```javaScript
 let stringOfWords = 'A 1000000 dollars baby!'
 wnn.extract(stringOfWords, { regex: wnn.wordsNumbers, toLowercase: true })
 // returns ['a', '1000000', 'dollars', 'baby']
 ```
 
 ### Predefined regex for words and emoticons, converted to lowercase
-```javascript
+```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.wordsEmojis, toLowercase: true })
 // returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢' ]
 ```
 
 ### Predefined regex for numbers and emoticons
-```javascript
+```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.numbersEmojis, toLowercase: true })
 // returns [ '2000', '👌😄', '😢' ]
 ```
 
 ### Predefined regex for words, numbers and emoticons, converted to lowercase
-```javascript
+```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
 // returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
 ### Predefined regex for `#tags`
-```javascript
+```javaScript
 let stringOfWords = 'A #ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
 // returns [ '#ticket', '#大阪' ]
 ```
 
 ### Predefined regex for `@usernames`
-```javascript
+```javaScript
 let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
 // returns [ '@alice', '@美林' ]
 ```
 
 ### Custom regex
-```javascript
+```javaScript
 let stringOfWords = 'This happens at 5 o\'clock !!!'
 wnn.extract(stringOfWords, { regex: '[a-z\'0-9]+' })
 // returns ['This', 'happens', 'at', '5', 'o\'clock']
@@ -115,7 +115,7 @@ wnn.extract(stringOfText, \<options-object\>)
 ```
 
 ### Predefined regex'es
-```javascript
+```javaScript
 wnn.words              // only words, any language <-- default
 wnn.numbers            // only numbers
 wnn.emojis             // only emojis
