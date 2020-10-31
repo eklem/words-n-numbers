@@ -122,14 +122,14 @@ test('extract words, numbers and emojis from string w/ words, number and emotico
 
 test('extract tags', function (t) {
   t.plan(1)
-  const oldString = 'A #ticket to #大阪 costs ¥2000 👌😄😄 😢'
+  const oldString = 'A #ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
   const newArray = wnn.extract(oldString, { regex: wnn.tags, toLowercase: true })
   t.deepEqual(newArray, ['#ticket', '#大阪'])
 })
 
 test('extract names', function (t) {
   t.plan(1)
-  const oldString = 'A #ticket to #大阪 costs @bob and @美林 ¥2000 👌😄😄 😢'
-  const newArray = wnn.extract(oldString, { regex: wnn.tags, toLowercase: true })
-  t.deepEqual(newArray, ['#ticket', '#大阪'])
+  const oldString = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
+  const newArray = wnn.extract(oldString, { regex: wnn.usernames, toLowercase: true })
+  t.deepEqual(newArray, ['@alice', '@美林'])
 })

@@ -14,8 +14,8 @@ const numbersEmojis = '\\p{Number}+|\\p{Emoji_Presentation}+'
 const wordsNumbersEmojis = '\\p{Alpha}+|\\p{Number}+|\\p{Emoji_Presentation}+'
 
 // #tags or #usernames
-const tags = '[#]\\p{Alpha}+'
-const usernames = '[@]\\p{Alpha}+'
+const tags = '\\B[#]\\p{Alpha}+'
+const usernames = '\\B[@]\\p{Alpha}+'
 
 // Default options object
 const defaultOptions = {
