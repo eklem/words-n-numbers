@@ -115,7 +115,21 @@ test('extract numbers and emojis from string w/ words, number and emoticon', fun
 
 test('extract words, numbers and emojis from string w/ words, number and emoticon, to lowercase', function (t) {
   t.plan(1)
-  const oldString = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+  const oldString = 'A ticket to 大阪 costs ¥2000 👌😄😄 😢'
   const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
-  t.deepEqual(newArray, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢'])
+  t.deepEqual(newArray, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄😄', '😢'])
+})
+
+test('extract tags', function (t) {
+  t.plan(1)
+  const oldString = 'A #ticket to #大阪 costs ¥2000 👌😄😄 😢'
+  const newArray = wnn.extract(oldString, { regex: wnn.tags, toLowercase: true })
+  t.deepEqual(newArray, ['#ticket', '#大阪'])
+})
+
+test('extract names', function (t) {
+  t.plan(1)
+  const oldString = 'A #ticket to #大阪 costs @bob and @美林 ¥2000 👌😄😄 😢'
+  const newArray = wnn.extract(oldString, { regex: wnn.tags, toLowercase: true })
+  t.deepEqual(newArray, ['#ticket', '#大阪'])
 })

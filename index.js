@@ -13,6 +13,10 @@ const wordsEmojis = '\\p{Alpha}+|\\p{Emoji_Presentation}+'
 const numbersEmojis = '\\p{Number}+|\\p{Emoji_Presentation}+'
 const wordsNumbersEmojis = '\\p{Alpha}+|\\p{Number}+|\\p{Emoji_Presentation}+'
 
+// #tags or #usernames
+const tags = '[#]\\p{Alpha}+'
+const usernames = '[@]\\p{Alpha}+'
+
 // Default options object
 const defaultOptions = {
   regex: words,
@@ -47,3 +51,5 @@ exports.wordsNumbers = wordsNumbers
 exports.wordsEmojis = wordsEmojis
 exports.numbersEmojis = numbersEmojis
 exports.wordsNumbersEmojis = wordsNumbersEmojis
+exports.tags = tags
+exports.usernames = usernames

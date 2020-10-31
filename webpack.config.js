@@ -12,7 +12,7 @@ module.exports =  [
       filename: 'words-n-numbers.' + package.version+ '.js',
       library: 'wnn'
     },
-    devtool: "none", // prevent webpack from using eval() on my module
+    devtool: 'none', // prevent webpack from using eval() on my module
   },
 
   // Generating a latest browser version of words'n'Numbers (same as latest version number)
@@ -24,7 +24,7 @@ module.exports =  [
       filename: 'words-n-numbers.latest.js',
       library: 'wnn'
     },
-    devtool: "none", // prevent webpack from using eval() on my module
+    devtool: 'none', // prevent webpack from using eval() on my module
   },
 
   // Generating test script for the browser
