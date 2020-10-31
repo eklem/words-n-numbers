@@ -123,6 +123,8 @@ wnn.wordsNumbers       // words (any language) and numbers
 wnn.wordsEmojis        // words (any language) and emojis
 wnn.numbersEmojis      // numbers and emojis
 wnn.wordsNumbersEmojis // words (any language), numbers and emojis
+wnn.tags               // #tags (any language
+wnn.usernames          // @usernames (any language)
 ```
 
 ### Languages supported
