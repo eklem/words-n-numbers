@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
   "main": "index.js",
   "scripts": {

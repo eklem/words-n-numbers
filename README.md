@@ -78,16 +78,16 @@ wnn.extract(stringOfWords, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
 
 ### Predefined regex for `#tags`
 ```javaScript
-let stringOfWords = 'A #ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
+let stringOfWords = 'A #49ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
-// returns [ '#ticket', '#大阪' ]
+// returns [ '#49ticket', '#大阪' ]
 ```
 
 ### Predefined regex for `@usernames`
 ```javaScript
 let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
-// returns [ '@alice', '@美林' ]
+// returns [ '@alice123', '@美林' ]
 ```
 
 ### Custom regex
