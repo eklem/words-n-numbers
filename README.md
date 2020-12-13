@@ -1,5 +1,5 @@
 # Words'n'numbers
-Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z]. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
+Tokenizing strings of text. Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
 
 Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
