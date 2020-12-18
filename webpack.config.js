@@ -1,5 +1,6 @@
 const path = require('path')
 const glob = require('glob')
+const webpack = require('webpack')
 
 module.exports = [
   // Generating browser version of words'n'Numbers
@@ -11,8 +12,9 @@ module.exports = [
       filename: 'words-n-numbers.js',
       library: 'wnn'
     },
-    devtool: 'none', // prevent webpack from using eval() on my module
+    devtool: 'hidden-source-map' // prevent webpack from using eval() on my module
   },
+
   // Generating test script for the browser
   {
     mode: 'production',
@@ -21,8 +23,24 @@ module.exports = [
       path: path.resolve(__dirname, './test/sandbox'),
       filename: 'bundle.js'
     },
+    resolve: {
+      fallback: {
+        fs: false,
+        path: require.resolve('path-browserify'),
+        stream: require.resolve('stream-browserify'),
+        buffer: require.resolve('buffer/')
+      }
+    },
     node: {
-      fs: 'empty'
-    }
+      global: true,
+      __filename: false,
+      __dirname: false
+    },
+    plugins: [
+      // fix "process is not defined" error:
+      new webpack.ProvidePlugin({
+        process: 'process/browser'
+      })
+    ]
   }
 ]

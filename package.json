@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,14 @@
   ],
   "devDependencies": {
     "standard": "^16.0.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^4.0.0",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0",
     "tape": "^5.0.1",
-    "tape-run": "^8.0.0"
+    "tape-run": "^8.0.0",
+    "path-browserify": "^1.0.1",
+    "stream-browserify": "^3.0.0",
+    "process": "^0.11.10",
+    "buffer": "^6.0.3"
   },
   "author": "Espen Klem",
   "license": "MIT",
