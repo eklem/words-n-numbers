@@ -1,7 +1,7 @@
 {
   "name": "words-n-numbers",
   "version": "4.0.2",
-  "description": "Extracting arrays of words and optionally numbers from strings. For Node.js and the browser. When you need more than just [a-z].",
+  "description": "Tokenizing strings of text. Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions."
   "main": "index.js",
   "scripts": {
     "compile-for-browser": "webpack",
