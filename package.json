@@ -16,6 +16,10 @@
     "nlp",
     "regex",
     "words",
+    "regex",
+    "tokenizer",
+    "tokenization, 
+    "offline-first",
     "numbers",
     "emojis",
     "extract"
