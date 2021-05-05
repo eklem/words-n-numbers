@@ -86,7 +86,7 @@ wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
 ### Predefined regex for `@usernames`
 ```javaScript
 let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
-wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
+wnn.extract(stringOfWords, { regex: wnn.usernames, toLowercase: true })
 // returns [ '@alice123', '@美林' ]
 ```
 
