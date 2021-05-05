@@ -127,9 +127,16 @@ test('extract tags', function (t) {
   t.deepEqual(newArray, ['#49ticket', '#大阪'])
 })
 
-test('extract names', function (t) {
+test('extract usernames', function (t) {
   t.plan(1)
   const oldString = 'A #ticket to #大阪 costs bob@bob.com, @alice123 and @美林 ¥2000 👌😄😄 😢'
   const newArray = wnn.extract(oldString, { regex: wnn.usernames, toLowercase: true })
   t.deepEqual(newArray, ['@alice123', '@美林'])
+})
+
+test('extract emails', function (t) {
+  t.plan(1)
+  const oldString = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com and @美林 ¥2000 👌😄😄 😢'
+  const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
+  t.deepEqual(newArray, ['bob@bob.com', 'alice.allison@alice123.com'])
 })

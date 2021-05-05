@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
   "main": "index.js",
   "scripts": {
@@ -25,20 +25,23 @@
     "extract"
   ],
   "devDependencies": {
-    "standard": "^16.0.0",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0",
-    "tape": "^5.0.1",
-    "tape-run": "^9.0.0",
+    "buffer": "^6.0.3",
     "path-browserify": "^1.0.1",
-    "stream-browserify": "^3.0.0",
     "process": "^0.11.10",
-    "buffer": "^6.0.3"
+    "standard": "^16.0.3",
+    "stream-browserify": "^3.0.0",
+    "tape": "^5.2.2",
+    "tape-run": "^9.0.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
   },
   "author": "Espen Klem",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eklem/words-n-numbers/issues"
   },
-  "homepage": "https://github.com/eklem/words-n-numbers#readme"
+  "homepage": "https://github.com/eklem/words-n-numbers#readme",
+  "dependencies": {
+    "electron": "^12.0.6"
+  }
 }
