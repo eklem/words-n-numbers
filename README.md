@@ -132,6 +132,8 @@ wnn.numbersEmojis      // numbers and emojis
 wnn.wordsNumbersEmojis // words (any language), numbers and emojis
 wnn.tags               // #tags (any language
 wnn.usernames          // @usernames (any language)
+wnn.email              // email addresses. Most valid addresses,
+                       //   but not to be used as a validator
 ```
 
 ### Languages supported
