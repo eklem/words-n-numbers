@@ -3,9 +3,10 @@ cache:
   directories:
     - node_modules
 node_js:
-  - '10'
+  - '10's
   - '12'
   - '14'
+  - '16'
 before_script:
   - npm prune
 branches:
