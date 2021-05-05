@@ -1,5 +1,5 @@
 # Words'n'numbers
-Tokenizing strings of text. Extracting arrays of words and optionally numbers and emojis / emoticons from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
+Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions. Part of document processing for [search-index](https://github.com/fergiemcdowall/search-index) and [nowsearch.xyz](https://github.com/eklem/nowsearch.xyz).
 
 Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
@@ -88,6 +88,13 @@ wnn.extract(stringOfWords, { regex: wnn.tags, toLowercase: true })
 let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
 wnn.extract(stringOfWords, { regex: wnn.usernames, toLowercase: true })
 // returns [ '@alice123', '@美林' ]
+```
+
+### Predefined regex for email addresses
+```javaScript
+let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com, some-name.nameson.nameson@domain.org and @美林 ¥2000 👌😄😄 😢'
+wnn.extract(stringOfWords, { regex: wnn.email, toLowercase: true })
+// returns [ 'bob@bob.com', 'alice.allison@alice123.com', 'some-name.nameson.nameson@domain.org' ]
 ```
 
 ### Custom regex
