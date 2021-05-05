@@ -134,9 +134,16 @@ test('extract usernames', function (t) {
   t.deepEqual(newArray, ['@alice123', '@美林'])
 })
 
-test('extract emails', function (t) {
+test('extract emails from text', function (t) {
   t.plan(1)
-  const oldString = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com and @美林 ¥2000 👌😄😄 😢'
+  const oldString = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com, some-name.nameson.nameson@domain.org and @美林 ¥2000 👌😄😄 😢'
   const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
-  t.deepEqual(newArray, ['bob@bob.com', 'alice.allison@alice123.com'])
+  t.deepEqual(newArray, ['bob@bob.com', 'alice.allison@alice123.com', 'some-name.nameson.nameson@domain.org'])
+})
+
+test('extract 14 of 16 different types of allowed emails. The one with double quotes are not extracted', function (t) {
+  t.plan(1)
+  const oldString = 'simple@example.com very.common@example.com disposable.style.email.with+symbol@example.com other.email-with-hyphen@example.com fully-qualified-domain@example.com user.name+tag+sorting@example.com x@example.com example-indeed@strange-example.com test/test@test.com admin@mailserver1 example@s.example " "@example.org "john..doe"@example.org mailhost!username@example.org user%example.com@example.org user-@example.org'
+  const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
+  t.deepEqual(newArray, ['simple@example.com', 'very.common@example.com', 'disposable.style.email.with+symbol@example.com', 'other.email-with-hyphen@example.com', 'fully-qualified-domain@example.com', 'user.name+tag+sorting@example.com', 'x@example.com', 'example-indeed@strange-example.com', 'test/test@test.com', 'admin@mailserver1', 'example@s.example', 'mailhost!username@example.org', 'user%example.com@example.org', 'user-@example.org'])
 })

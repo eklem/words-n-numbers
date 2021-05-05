@@ -16,7 +16,7 @@ const wordsNumbersEmojis = '\\p{Alpha}+|\\p{Number}+|\\p{Emoji_Presentation}+'
 // #tags, @usernames or email.addresses@example.com
 const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+'
 const usernames = '\\B[@][\\p{Alpha}|\\p{Number}]+'
-const email = '[0-9a-zA-Z.]+@[0-9a-zA-Z-.]+'
+const email = '[0-9a-zA-Z!#$%&\'*+-/=?^_`{|}~.]+@[0-9a-zA-Z-.]+'
 
 // Default options object
 const defaultOptions = {
