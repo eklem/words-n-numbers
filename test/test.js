@@ -147,3 +147,10 @@ test('extract 14 of 16 different types of allowed emails. The one with double qu
   const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
   t.deepEqual(newArray, ['simple@example.com', 'very.common@example.com', 'disposable.style.email.with+symbol@example.com', 'other.email-with-hyphen@example.com', 'fully-qualified-domain@example.com', 'user.name+tag+sorting@example.com', 'x@example.com', 'example-indeed@strange-example.com', 'test/test@test.com', 'admin@mailserver1', 'example@s.example', 'mailhost!username@example.org', 'user%example.com@example.org', 'user-@example.org'])
 })
+
+test('Extract email addresses in a sentence where you have a full stop immediately after an email address.', function (t) {
+  t.plan(1)
+  const oldString = 'Please send it to some.email@address.com. And this Another.Name.for-email@address.com, should also work.'
+  const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
+  t.deepEqual(newArray, ['some.email@address.com', 'another.name.for-email@address.com'])
+})
