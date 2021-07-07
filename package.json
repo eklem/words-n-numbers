@@ -42,6 +42,6 @@
   },
   "homepage": "https://github.com/eklem/words-n-numbers#readme",
   "dependencies": {
-    "electron": "^13.1.5"
+    "electron": "^13.1.6"
   }
 }
