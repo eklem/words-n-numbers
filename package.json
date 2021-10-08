@@ -1,12 +1,13 @@
 {
   "name": "words-n-numbers",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
-  "main": "index.js",
+  "main": "./dist/words-n-numbers.cjs.js",
+  "module": "./dist/words-n-numbers.esm.mjs",
+  "browser": "./dist/words-n-numbers.umd.js",
   "scripts": {
-    "compile-for-browser": "webpack",
-    "empty-sandbox": "rm -rf test/sandbox && mkdir test/sandbox",
-    "test": "npm run empty-sandbox && standard --fix \"./index.js\" \"./test/*.js\" && npm run compile-for-browser && tape ./test/test.js && cat test/sandbox/bundle.js | tape-run && rm -rf test/sandbox"
+    "build": "rollup --config",
+    "test": "standard './*.js' && npm run build  && npx ava ./test/test.cjs.js && npx ava ./test/test.esm.mjs"
   },
   "repository": {
     "type": "git",
@@ -25,15 +26,7 @@
     "extract"
   ],
   "devDependencies": {
-    "buffer": "^6.0.3",
-    "path-browserify": "^1.0.1",
-    "process": "^0.11.10",
-    "standard": "^16.0.3",
-    "stream-browserify": "^3.0.0",
-    "tape": "^5.3.0",
-    "tape-run": "^9.0.0",
-    "webpack": "^5.48.0",
-    "webpack-cli": "^4.7.2"
+    "batr": "^1.0.5"
   },
   "author": "Espen Klem",
   "license": "MIT",
