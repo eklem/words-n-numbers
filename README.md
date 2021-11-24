@@ -5,7 +5,7 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][build-image]][build-url]
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 [![MIT License][license-image]][license-url]
 
@@ -146,7 +146,7 @@ PR's and issues are more than welcome =)
 [npm-url]: https://npmjs.org/package/words-n-numbers
 [npm-version-image]: http://img.shields.io/npm/v/words-n-numbers.svg?style=flat
 [npm-downloads-image]: http://img.shields.io/npm/dm/words-n-numbers.svg?style=flat
-[travis-url]: http://travis-ci.org/eklem/words-n-numbers
-[travis-image]: http://img.shields.io/travis/eklem/words-n-numbers.svg?style=flat
+[build-url]: https://github.com/eklem/words-n-numbers/actions/workflows/tests.yml
+[build-image]: https://github.com/eklem/words-n-numbers/actions/workflows/tests.yml/badge.svg
 [standardjs-url]: https://standardjs.com
 [standardjs-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square

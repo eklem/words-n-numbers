@@ -15,8 +15,8 @@ export default [
     input: './src/index.js',
     output: [
       { name: 'wnn', file: pkg.browser, format: 'umd', exports: 'named' },
-      { name: 'wnn', file: pkg.main, format: 'cjs', exports: 'named' },
-      { name: 'wnn', file: pkg.module, format: 'es', exports: 'named' }
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
