@@ -97,6 +97,7 @@ wnn.extract(stringOfWords, { regex: wnn.email, toLowercase: true })
 ```
 
 ### Custom regex
+Some characters needs to be escaped, like `\`and `'`. And you escape it with a backslash - `\`.
 ```javaScript
 let stringOfWords = 'This happens at 5 o\'clock !!!'
 wnn.extract(stringOfWords, { regex: '[a-z\'0-9]+' })
