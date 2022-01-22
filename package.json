@@ -7,7 +7,8 @@
   "browser": "./dist/words-n-numbers.umd.js",
   "scripts": {
     "build": "rollup --config",
-    "test": "standard './*.js' && npm run build  && npx ava ./test/test.cjs.js && npx ava ./test/test.esm.mjs"
+    "test": "standard './*.js' && npm run build  && npx ava ./test/test.cjs.js && npx ava ./test/test.esm.mjs",
+    "copy": "cp ./node_modules/blingblingjs/src/index.js ./demo/js/blingbling.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "extract"
   ],
   "devDependencies": {
-    "batr": "^2.0.1"
+    "batr": "^2.0.1",
+    "blingblingjs": "^2.2.0"
   },
   "author": "Espen Klem",
   "license": "MIT",
