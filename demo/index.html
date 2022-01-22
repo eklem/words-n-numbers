@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="../dist/words-n-numbers.umd.js"></script>
+  </head>
+  <body class="bg-rose-50">
+    <div class="bg-slate-600 text-rose-50 p-3">
+      <h1 class="text-3xl font-thin">Hit-highlighter demo</h1>
+    </div>
+
+    <div class="p-3">
+      <div id="queryContainer" class="mb-5">
+        <div id="query">
+          <h2 class="text-2xl font-light">Query</h2>
+          <input type="text" id="querytext" placeholder="some query words" class="rounded text-xl"/><br />
+        </div>
+      </div>
+      <div id="config" class="mb-5">
+        <h2 class="text-2xl font-light">Max words</h2>
+        <select name="maxwordselect" id="maxwords" class="rounded text-xl">
+          <option value="50">50</option>
+          <option value="40">40</option>
+          <option value="30">30</option>
+          <option value="20">20</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div id="highlighted"">
+        <h2 class="text-2xl font-light">Hit highlighted</h2>
+        <div id="itemWithHighlights"></div>
+      </div>
+    </div>
+
+    <!-- <script src="./demo-app.js"></script> -->
+  </body>
+</html>
