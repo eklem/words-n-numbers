@@ -32,7 +32,7 @@ const wnn = require('words-n-numbers')
 ## Browser demo
 A [simple browser demo of wnn](https://eklem.github.io/words-n-numbers/demo/) to show how it works.
 
-
+[![Screenshot of the words-n-numbers demo](./demo/wnn-demo-screenshot.png)](https://eklem.github.io/words-n-numbers/demo/)
 
 ## Use
 
