@@ -1,8 +1,12 @@
 
 import $ from './blingbling.js'
-$('#querytext').on('keydown', e => querytext())
+import wnn from './wnn.js'
 
-const querytext = function () {
-  const [txt] = $(document.querySelector('input#querytext'))
-  console.log(txt.attr('value'))
-}
+$('#querytext').on('input', queryText => {
+  // get textarea content
+  queryText = wnn.extract(queryText.target.value, { regex: wnn.wordsEmojis, toLowercase: true })
+
+  // Populate div#wnn with tokenized text
+  const node = document.createElement('span').innerText = JSON.stringify(queryText, 2, ' ')
+  document.getElementById('wnn').replaceChildren(node)
+})

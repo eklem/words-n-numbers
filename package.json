@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup --config",
     "test": "standard './*.js' && npm run build  && npx ava ./test/test.cjs.js && npx ava ./test/test.esm.mjs",
-    "copy": "cp ./node_modules/blingblingjs/src/index.js ./demo/js/blingbling.js"
+    "copy": "cp ./node_modules/blingblingjs/src/index.js ./demo/js/blingbling.js && cp ./dist/words-n-numbers.esm.mjs ./demo/js/wnn.js"
   },
   "repository": {
     "type": "git",
