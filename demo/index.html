@@ -12,10 +12,23 @@
     </div>
     <div class="p-3">
       <div id="queryContainer" class="mb-5">
-        <div id="query">
-          <h2 class="text-2xl font-light">Query</h2>
-          <textarea rows="3" id="querytext" class="rounded text-xl w-full border-none border-white focus:outline-none focus:outline-none focus:ring-slate-400"></textarea>
-        </div>
+        <h2 class="text-2xl font-light">Query</h2>
+        <textarea rows="3" id="querytext" class="rounded text-xl w-full border-none border-white focus:outline-none focus:outline-none focus:ring-slate-400"></textarea>
+      </div>
+      <div id="regexSelector" class="mb-5">
+        <h2 class="text-2xl font-light">Regex</h2>
+        <select id="regex">
+          <option value="words">words</option>
+          <option value="numbers">numbers</option>
+          <option value="emojis">emojis</option>
+          <option value="wordsNumbers">words and numbers</option>
+          <option value="wordsEmojis">words and emojis</option>
+          <option value="numbersEmojis">numbers and emojis</option>
+          <option value="wordsNumbersEmojis">words and numbers and emojis</option>
+          <option value="tags">tags</option>
+          <option value="usernames">usernames</option>
+          <option value="email">email</option>
+        </select>
       </div>
       <div id="tokenized">
         <h2 class="text-2xl font-light">Tokenized text</h2>
