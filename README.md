@@ -144,13 +144,6 @@ wnn.email              // email addresses. Most valid addresses,
 ### Languages supported
 Supports most languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code), and others too. Some languages like Japanese and Chinese simplified needs to be tokenized. May add tokenizers at a later stage.
 
-### Development
-Get devDependencies and copy `blingblingjs` and `words-n-numbers.esm.mjs` to demo-folder.
-
-```console
- npm install && npm run copy
-```
-
 #### PR's welcome
 PR's and issues are more than welcome =)
 
