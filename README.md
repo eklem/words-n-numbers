@@ -58,31 +58,31 @@ wnn.extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
-### Predefined regex for words and numbers, converted to lowercase
+### Combining predefined regex for words and numbers, converted to lowercase
 ```javaScript
 let stringOfWords = 'A 1000000 dollars baby!'
-wnn.extract(stringOfWords, { regex: wnn.wordsNumbers, toLowercase: true })
+wnn.extract(stringOfWords, { regex: [wnn.words, wnn.numbers], toLowercase: true })
 // returns ['a', '1000000', 'dollars', 'baby']
 ```
 
-### Predefined regex for words and emoticons, converted to lowercase
+### Combining predefined regex for words and emoticons, converted to lowercase
 ```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-wnn.extract(stringOfWords, { regex: wnn.wordsEmojis, toLowercase: true })
+wnn.extract(stringOfWords, { regex: [wnn.words, wnn.emojis], toLowercase: true })
 // returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢' ]
 ```
 
-### Predefined regex for numbers and emoticons
+### Combining predefined regex for numbers and emoticons
 ```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-wnn.extract(stringOfWords, { regex: wnn.numbersEmojis, toLowercase: true })
+wnn.extract(stringOfWords, { regex: [wnn.numbers, wnn.emojis, toLowercase: true })
 // returns [ '2000', '👌😄', '😢' ]
 ```
 
-### Predefined regex for words, numbers and emoticons, converted to lowercase
+### Combining predefined regex for words, numbers and emoticons, converted to lowercase
 ```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-wnn.extract(stringOfWords, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
+wnn.extract(stringOfWords, { regex: [wnn.words, wnn.numbers, wnn.emojis, toLowercase: true })
 // returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
@@ -127,20 +127,19 @@ wnn.extract(stringOfText, \<options-object\>)
 ### Options object
 ```javascript
 {
-  regex: '[custom or predefined regex]',  // defaults to wnn.words
+  regex: 'custom or predefined regex',  // defaults to wnn.words
   toLowercase: [true / false]             // defaults to false
 }
 ```
+
+You can add an array of different regexes or just a string. If you add an array, they will be joined with a `|`-separator, making it an OR-regex. Put the `wnn.email`, `wnn.usernames` and `wnn.tags` before `wnn.words` to get the extraction right.
+
 
 ### Predefined regex'es
 ```javaScript
 wnn.words              // only words, any language <-- default
 wnn.numbers            // only numbers
 wnn.emojis             // only emojis
-wnn.wordsNumbers       // words (any language) and numbers
-wnn.wordsEmojis        // words (any language) and emojis
-wnn.numbersEmojis      // numbers and emojis
-wnn.wordsNumbersEmojis // words (any language), numbers and emojis
 wnn.tags               // #tags (any language
 wnn.usernames          // @usernames (any language)
 wnn.email              // email addresses. Most valid addresses,
