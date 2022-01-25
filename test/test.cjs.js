@@ -15,7 +15,7 @@ test('extract numbers only, predefined regex and default options', (t) => {
 
 test('extract words and numbers, predefined regex and default options', (t) => {
   const oldString = 'I want only words! I told you a 1000000 times'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbers })
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.numbers] })
   t.deepEqual(newArray, ['I', 'want', 'only', 'words', 'I', 'told', 'you', 'a', '1000000', 'times'])
 })
 
@@ -31,10 +31,10 @@ test('extract words only, default regex, all lowercase', (t) => {
   t.deepEqual(newArray, ['i', 'want', 'only', 'words', 'i', 'told', 'you', 'a', 'times'])
 })
 
-test('extract words and numbers, predefined but not default regex', (t) => {
+test('extract words and numbers, predefined but not default regex and lowercase', (t) => {
   const oldString = 'I want only words! I told you a 1000000 times'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbers })
-  t.deepEqual(newArray, ['I', 'want', 'only', 'words', 'I', 'told', 'you', 'a', '1000000', 'times'])
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.numbers], toLowercase: true })
+  t.deepEqual(newArray, ['i', 'want', 'only', 'words', 'i', 'told', 'you', 'a', '1000000', 'times'])
 })
 
 test('extract words only, custom English regex (skipping Norwegian charachters)', (t) => {
@@ -57,7 +57,7 @@ test('extract words only, Hindi text, default regex', (t) => {
 
 test('extract words and numbers, Hindi text, predefined regex', (t) => {
   const oldString = 'कालिंजर दुर्ग, भारतीय राज्य उत्तर प्रदेश के बांदा जिला स्थित एक दुर्ग है। बुन्देलखण्ड क्षेत्र में विंध्य पर्वत पर स्थित यह दुर्ग विश्व धरोहर स्थल खजुराहो से ९७.७ किमी दूर है। इसे भारत के सबसे विशाल और अपराजेय'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbers })
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.numbers] })
   t.deepEqual(newArray, ['कालिंजर', 'दुर', 'ग', 'भारतीय', 'राज', 'य', 'उत', 'तर', 'प', 'रदेश', 'के', 'बांदा', 'जिला', 'स', 'थित', 'एक', 'दुर', 'ग', 'है', 'बुन', 'देलखण', 'ड', 'क', 'षेत', 'र', 'में', 'विंध', 'य', 'पर', 'वत', 'पर', 'स', 'थित', 'यह', 'दुर', 'ग', 'विश', 'व', 'धरोहर', 'स', 'थल', 'खजुराहो', 'से', '९७', '७', 'किमी', 'दूर', 'है', 'इसे', 'भारत', 'के', 'सबसे', 'विशाल', 'और', 'अपराजेय'])
 })
 
@@ -81,25 +81,25 @@ test('extract words only from string w/ words, number and emoticon', (t) => {
 
 test('extract words and numbers from string w/ words, number and emoticon', (t) => {
   const oldString = 'A ticket to 大阪 costs ¥2000 👌'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbers })
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.numbers] })
   t.deepEqual(newArray, ['A', 'ticket', 'to', '大阪', 'costs', '2000'])
 })
 
 test('extract words and emojis from string w/ words, number and emoticon', (t) => {
   const oldString = 'A ticket to 大阪 costs ¥2000 👌'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsEmojis })
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.emojis] })
   t.deepEqual(newArray, ['A', 'ticket', 'to', '大阪', 'costs', '👌'])
 })
 
 test('extract numbers and emojis from string w/ words, number and emoticon', (t) => {
   const oldString = 'A ticket to 大阪 costs ¥2000 👌'
-  const newArray = wnn.extract(oldString, { regex: wnn.numbersEmojis })
+  const newArray = wnn.extract(oldString, { regex: [wnn.numbers, wnn.emojis] })
   t.deepEqual(newArray, ['2000', '👌'])
 })
 
 test('extract words, numbers and emojis from string w/ words, number and emoticon, to lowercase', (t) => {
   const oldString = 'A ticket to 大阪 costs ¥2000 👌😄😄 😢'
-  const newArray = wnn.extract(oldString, { regex: wnn.wordsNumbersEmojis, toLowercase: true })
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.numbers, wnn.emojis], toLowercase: true })
   t.deepEqual(newArray, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄😄', '😢'])
 })
 
@@ -131,4 +131,34 @@ test('Extract email addresses in a sentence where you have a full stop immediate
   const oldString = 'Please send it to some.email@address.com. And this Another.Name.for-email@address.com, should also work.'
   const newArray = wnn.extract(oldString, { regex: wnn.email, toLowercase: true })
   t.deepEqual(newArray, ['some.email@address.com', 'another.name.for-email@address.com'])
+})
+
+test('Extracting email addresses, usernames and text in the wrong (opposite) order', (t) => {
+  const oldString = 'Please send it to some.email@address.com. And remember to notify @someemail at Twitter too.'
+  const newArray = wnn.extract(oldString, { regex: [wnn.words, wnn.usernames, wnn.email] })
+  t.deepEqual(newArray, ['Please', 'send', 'it', 'to', 'some', '.email@address.com', 'And', 'remember', 'to', 'notify', '@someemail', 'at', 'Twitter', 'too'])
+})
+
+test('Extracting email addresses, usernames and text in the correct order', (t) => {
+  const oldString = 'Please send it to some.email@address.com. And remember to notify @someemail at Twitter too.'
+  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+  t.deepEqual(newArray, ['Please', 'send', 'it', 'to', 'some.email@address.com', 'And', 'remember', 'to', 'notify', '@someemail', 'at', 'Twitter', 'too'])
+})
+
+test('Apostrophe in French text with multiple characters after apostroph', (t) => {
+  const oldString = 'Wikipédia est un projet d’encyclopédie collective en ligne, universelle, multilingue et fonctionnant sur le principe du wiki.'
+  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+  t.deepEqual(newArray, ['Wikipédia', 'est', 'un', 'projet', 'd’encyclopédie', 'collective', 'en', 'ligne', 'universelle', 'multilingue', 'et', 'fonctionnant', 'sur', 'le', 'principe', 'du', 'wiki'])
+})
+
+test('Apostrophe in English text', (t) => {
+  const oldString = '“When we pick these sectors, it’s quite deliberate,” an official said.'
+  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+  t.deepEqual(newArray, ['When', 'we', 'pick', 'these', 'sectors', 'it’s', 'quite', 'deliberate', 'an', 'official', 'said'])
+})
+
+test('Apostrophe ultimate test', (t) => {
+  const oldString = "Some words and a word with a1000number in it's core, but 'single quotes shouldn't pass' name.nameson@domain.com"
+  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.words] })
+  t.deepEqual(newArray, ['Some', 'words', 'and', 'a', 'word', 'with', 'a', 'number', 'in', 'it\'s', 'core', 'but', 'single', 'quotes', 'shouldn\'t', 'pass', 'name.nameson@domain.com'])
 })

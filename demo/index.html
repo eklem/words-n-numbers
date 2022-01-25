@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="./js/words-n-numbers.umd.js"></script>
   </head>
   <body class="bg-slate-200">
     <div class="bg-slate-600 text-rose-50 p-3">
@@ -17,18 +18,25 @@
       </div>
       <div id="regexSelector" class="mb-5">
         <h2 class="text-2xl font-light">Regex</h2>
-        <select id="regex">
-          <option value="words">words</option>
-          <option value="numbers">numbers</option>
-          <option value="emojis">emojis</option>
-          <option value="wordsNumbers">words and numbers</option>
-          <option value="wordsEmojis">words and emojis</option>
-          <option value="numbersEmojis">numbers and emojis</option>
-          <option value="wordsNumbersEmojis">words and numbers and emojis</option>
-          <option value="tags">tags</option>
-          <option value="usernames">usernames</option>
-          <option value="email">email</option>
-        </select>
+        <div class="text-xl font-light">
+          <input type="checkbox" id="email" name="email" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="email" class="mr-3">Email addresses</label>
+
+          <input type="checkbox" id="usernames" name="usernames" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="usernames" class="mr-3">Usernames</label>
+
+          <input type="checkbox" id="tags" name="tags" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="tags" class="mr-3">Tags</label>
+
+          <input type="checkbox" id="emojis" name="emojis" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="emojis" class="mr-3">Emojis</label>
+
+          <input type="checkbox" id="numbers" name="numbers" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="numbers" class="mr-3">Numbers</label>
+
+          <input type="checkbox" id="words" name="words" class="rounded border-2 border-slate-300 p-2 checkbox">
+          <label for="words" class="mr-3">Words</label>
+        </div>
       </div>
       <div id="tokenized">
         <h2 class="text-2xl font-light">Tokenized text</h2>

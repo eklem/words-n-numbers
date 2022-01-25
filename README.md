@@ -11,22 +11,28 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
 ## Initiating
 
-### Node.js
+### CJS
 
 ```javascript
 const wnn = require('words-n-numbers')
 // wnn available
 ```
 
+### EMS
+
+```javascript
+import wnn from ('words-n-numbers')
+// wnn available
+```
+
 ### Browser
 
 ```html
-<script src="wnn.js"></script>
+<script src="words-numbers.umd.js"></script>
 
 <script>
   //wnn available
 </script>
-
 ```
 
 ## Browser demo

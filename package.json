@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "6.0.3",
+  "version": "7.0.0",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
   "main": "./dist/words-n-numbers.cjs.js",
   "module": "./dist/words-n-numbers.esm.mjs",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup --config",
     "test": "standard './*.js' && npm run build  && npx ava ./test/test.cjs.js && npx ava ./test/test.esm.mjs",
-    "copy": "cp ./dist/words-n-numbers.esm.mjs ./demo/js/wnn.js"
+    "copy": "cp ./dist/words-n-numbers.umd.js ./demo/js/words-n-numbers.umd.js"
   },
   "repository": {
     "type": "git",

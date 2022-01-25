@@ -1,10 +1,6 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var src = {};
 
-const words = '\\p{Alpha}+[\'’?]\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+';
+const words = '\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+';
 const numbers = '\\p{Number}+';
 const emojis = '\\p{Emoji_Presentation}+';
 const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+';
@@ -50,11 +46,4 @@ var tags_1 = src.tags = tags;
 var usernames_1 = src.usernames = usernames;
 var email_1 = src.email = email;
 
-exports["default"] = src;
-exports.email = email_1;
-exports.emojis = emojis_1;
-exports.extract = extract;
-exports.numbers = numbers_1;
-exports.tags = tags_1;
-exports.usernames = usernames_1;
-exports.words = words_1;
+export { src as default, email_1 as email, emojis_1 as emojis, extract, numbers_1 as numbers, tags_1 as tags, usernames_1 as usernames, words_1 as words };
