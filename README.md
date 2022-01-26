@@ -144,7 +144,6 @@ wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
 wnn.extract(oldString, { regex: [wnn.words, wnn.usernames, wnn.email] })
 ```
 
-
 ### Predefined regex'es
 ```javaScript
 wnn.words              // only words, any language <-- default
