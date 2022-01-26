@@ -18,7 +18,7 @@ const wnn = require('words-n-numbers')
 // wnn available
 ```
 
-### EMS
+### ESM
 
 ```javascript
 import wnn from ('words-n-numbers')
