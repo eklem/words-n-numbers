@@ -31,7 +31,7 @@ import { extract, words, numbers, emojis, tags, usernames, email } from ('words-
 <script src="words-numbers.umd.js"></script>
 
 <script>
-  //wnn available
+  //wnn.extract, wnn.words, wnn.numbers, wnn.emojis, wnn.tags, wnn.usernames, wnn.email available
 </script>
 ```
 
