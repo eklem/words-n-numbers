@@ -2,8 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var src = {};
-
 const words = '\\p{Alpha}+[\'’?]\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+';
 const numbers = '\\p{Number}+';
 const emojis = '\\p{Emoji_Presentation}+';
@@ -11,13 +9,13 @@ const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+';
 const usernames = '\\B[@][\\p{Alpha}|\\p{Number}]+';
 const email = '[0-9a-zA-Z!#$%&\'*+-/=?^_`{|}~.]+@[0-9a-zA-Z-.]+[a-zA-Z0-9]';
 
-// Default options object
-const defaultOptions = {
-  regex: words,
-  toLowercase: false
-};
+const extract = function (string, options) {
+  // Default options object
+  const defaultOptions = {
+    regex: words,
+    toLowercase: false
+  };
 
-var extract = src.extract = function (string, options) {
   // Populate regex and options objects
   options = {
     ...defaultOptions,
@@ -43,18 +41,10 @@ var extract = src.extract = function (string, options) {
   return extracted
 };
 
-var words_1 = src.words = words;
-var numbers_1 = src.numbers = numbers;
-var emojis_1 = src.emojis = emojis;
-var tags_1 = src.tags = tags;
-var usernames_1 = src.usernames = usernames;
-var email_1 = src.email = email;
-
-exports["default"] = src;
-exports.email = email_1;
-exports.emojis = emojis_1;
+exports.email = email;
+exports.emojis = emojis;
 exports.extract = extract;
-exports.numbers = numbers_1;
-exports.tags = tags_1;
-exports.usernames = usernames_1;
-exports.words = words_1;
+exports.numbers = numbers;
+exports.tags = tags;
+exports.usernames = usernames;
+exports.words = words;

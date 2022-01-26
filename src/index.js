@@ -5,13 +5,13 @@ const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+'
 const usernames = '\\B[@][\\p{Alpha}|\\p{Number}]+'
 const email = '[0-9a-zA-Z!#$%&\'*+-/=?^_`{|}~.]+@[0-9a-zA-Z-.]+[a-zA-Z0-9]'
 
-// Default options object
-const defaultOptions = {
-  regex: words,
-  toLowercase: false
-}
+const extract = function (string, options) {
+  // Default options object
+  const defaultOptions = {
+    regex: words,
+    toLowercase: false
+  }
 
-exports.extract = function (string, options) {
   // Populate regex and options objects
   options = {
     ...defaultOptions,
@@ -37,9 +37,4 @@ exports.extract = function (string, options) {
   return extracted
 }
 
-exports.words = words
-exports.numbers = numbers
-exports.emojis = emojis
-exports.tags = tags
-exports.usernames = usernames
-exports.email = email
+export { extract, words, numbers, emojis, tags, usernames, email }

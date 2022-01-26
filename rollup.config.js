@@ -4,19 +4,12 @@ import json from '@rollup/plugin-json'
 import pkg from './package.json'
 
 export default [
-  // browser-friendly UMD build
-  // CommonJS (for Node) and ES module (for bundlers) build.
-  // (We could have three entries in the configuration array
-  // instead of two, but it's quicker to generate multiple
-  // builds from a single configuration where possible, using
-  // an array for the `output` option, where we can specify
-  // `file` and `format` for each target)
   {
     input: './src/index.js',
     output: [
-      { name: 'wnn', file: pkg.browser, format: 'umd', exports: 'named' },
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { name: 'wnn', file: pkg.browser, format: 'umd' },
+      { file: pkg.main, format: 'cjs', exports: 'auto' },
+      { file: pkg.module, format: 'esm', exports: 'auto' }
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`
