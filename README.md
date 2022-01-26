@@ -132,7 +132,17 @@ wnn.extract(stringOfText, \<options-object\>)
 }
 ```
 
+### Order of combined regexes
+
 You can add an array of different regexes or just a string. If you add an array, they will be joined with a `|`-separator, making it an OR-regex. Put the `wnn.email`, `wnn.usernames` and `wnn.tags` before `wnn.words` to get the extraction right.
+
+```javaScript
+// email addresses before usernames before words can give another outcome than
+wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+
+// than words before usernames before email addresses
+wnn.extract(oldString, { regex: [wnn.words, wnn.usernames, wnn.email] })
+```
 
 
 ### Predefined regex'es

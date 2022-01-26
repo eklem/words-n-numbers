@@ -147,13 +147,13 @@ test('Extracting email addresses, usernames and text in the correct order', (t) 
 
 test('Apostrophe in French text with multiple characters after apostroph', (t) => {
   const oldString = 'Wikipédia est un projet d’encyclopédie collective en ligne, universelle, multilingue et fonctionnant sur le principe du wiki.'
-  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+  const newArray = wnn.extract(oldString, { regex: wnn.words })
   t.deepEqual(newArray, ['Wikipédia', 'est', 'un', 'projet', 'd’encyclopédie', 'collective', 'en', 'ligne', 'universelle', 'multilingue', 'et', 'fonctionnant', 'sur', 'le', 'principe', 'du', 'wiki'])
 })
 
 test('Apostrophe in English text', (t) => {
   const oldString = '“When we pick these sectors, it’s quite deliberate,” an official said.'
-  const newArray = wnn.extract(oldString, { regex: [wnn.email, wnn.usernames, wnn.words] })
+  const newArray = wnn.extract(oldString, { regex: wnn.words })
   t.deepEqual(newArray, ['When', 'we', 'pick', 'these', 'sectors', 'it’s', 'quite', 'deliberate', 'an', 'official', 'said'])
 })
 
