@@ -27,7 +27,7 @@
     "extract"
   ],
   "devDependencies": {
-    "batr": "^2.0.1"
+    "batr": "^2.0.2"
   },
   "author": "Espen Klem",
   "license": "MIT",
