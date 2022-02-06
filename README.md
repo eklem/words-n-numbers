@@ -75,14 +75,14 @@ extract(stringOfWords, { regex: [words, emojis], toLowercase: true })
 ### Combining predefined regex for numbers and emoticons
 ```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-extract(stringOfWords, { regex: [numbers, emojis, toLowercase: true })
+extract(stringOfWords, { regex: [numbers, emojis], toLowercase: true })
 // returns [ '2000', '👌😄', '😢' ]
 ```
 
 ### Combining predefined regex for words, numbers and emoticons, converted to lowercase
 ```javaScript
 let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-extract(stringOfWords, { regex: [words, numbers, emojis, toLowercase: true })
+extract(stringOfWords, { regex: [words, numbers, emojis], toLowercase: true })
 // returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
