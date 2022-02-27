@@ -75,14 +75,14 @@ extract(stringOfWords, { regex: [words, emojis], toLowercase: true })
 ### Combining predefined regex for numbers and emoticons
 ```javaScript
 const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-extract(stringOfWords, { regex: [numbers, emojis, toLowercase: true })
+extract(stringOfWords, { regex: [numbers, emojis], toLowercase: true })
 // returns [ '2000', '👌😄', '😢' ]
 ```
 
 ### Combining predefined regex for words, numbers and emoticons, converted to lowercase
 ```javaScript
-const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
-extract(stringOfWords, { regex: [words, numbers, emojis, toLowercase: true })
+cons stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+extract(stringOfWords, { regex: [words, numbers, emojis], toLowercase: true })
 // returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
@@ -152,7 +152,7 @@ emojis             // only emojis
 tags               // #tags (any language
 usernames          // @usernames (any language)
 email              // email addresses. Most valid addresses,
-                       //   but not to be used as a validator
+                   //   but not to be used as a validator
 ```
 
 ### Languages supported
