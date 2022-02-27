@@ -46,63 +46,63 @@ The default regex should catch every unicode character from for every language.
 
 ### Only words
 ```javaScript
-let stringOfWords = 'A 1000000 dollars baby!'
+const stringOfWords = 'A 1000000 dollars baby!'
 extract(stringOfWords)
 // returns ['A', 'dollars', 'baby']
 ```
 
 ### Only words, converted to lowercase
 ```javaScript
-let stringOfWords = 'A 1000000 dollars baby!'
+const stringOfWords = 'A 1000000 dollars baby!'
 extract(stringOfWords, { toLowercase: true })
 // returns ['a', 'dollars', 'baby']
 ```
 
 ### Combining predefined regex for words and numbers, converted to lowercase
 ```javaScript
-let stringOfWords = 'A 1000000 dollars baby!'
+const stringOfWords = 'A 1000000 dollars baby!'
 extract(stringOfWords, { regex: [words, numbers], toLowercase: true })
 // returns ['a', '1000000', 'dollars', 'baby']
 ```
 
 ### Combining predefined regex for words and emoticons, converted to lowercase
 ```javaScript
-let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [words, emojis], toLowercase: true })
 // returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢' ]
 ```
 
 ### Combining predefined regex for numbers and emoticons
 ```javaScript
-let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [numbers, emojis, toLowercase: true })
 // returns [ '2000', '👌😄', '😢' ]
 ```
 
 ### Combining predefined regex for words, numbers and emoticons, converted to lowercase
 ```javaScript
-let stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
+const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [words, numbers, emojis, toLowercase: true })
 // returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
 ```
 
 ### Predefined regex for `#tags`
 ```javaScript
-let stringOfWords = 'A #49ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
+const stringOfWords = 'A #49ticket to #大阪 or two#tickets costs ¥2000 👌😄😄 😢'
 extract(stringOfWords, { regex: tags, toLowercase: true })
 // returns [ '#49ticket', '#大阪' ]
 ```
 
 ### Predefined regex for `@usernames`
 ```javaScript
-let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
+const stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, @alice and @美林 ¥2000 👌😄😄 😢'
 extract(stringOfWords, { regex: usernames, toLowercase: true })
 // returns [ '@alice123', '@美林' ]
 ```
 
 ### Predefined regex for email addresses
 ```javaScript
-let stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com, some-name.nameson.nameson@domain.org and @美林 ¥2000 👌😄😄 😢'
+const stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com, some-name.nameson.nameson@domain.org and @美林 ¥2000 👌😄😄 😢'
 extract(stringOfWords, { regex: email, toLowercase: true })
 // returns [ 'bob@bob.com', 'alice.allison@alice123.com', 'some-name.nameson.nameson@domain.org' ]
 ```
@@ -110,7 +110,7 @@ extract(stringOfWords, { regex: email, toLowercase: true })
 ### Custom regex
 Some characters needs to be escaped, like `\`and `'`. And you escape it with a backslash - `\`.
 ```javaScript
-let stringOfWords = 'This happens at 5 o\'clock !!!'
+const stringOfWords = 'This happens at 5 o\'clock !!!'
 extract(stringOfWords, { regex: '[a-z\'0-9]+' })
 // returns ['This', 'happens', 'at', '5', 'o\'clock']
 ```

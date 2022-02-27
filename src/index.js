@@ -18,6 +18,11 @@ const extract = function (string, options) {
     ...options
   }
 
+  // Check that input is a string
+  if (typeof string !== 'string') {
+    throw new Error('Error: Input is not a string')
+  }
+
   // Join regexes with or between them -> '|'
   if (options.regex.constructor === Array) {
     options.regex = options.regex.join('|')

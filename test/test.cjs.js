@@ -162,3 +162,12 @@ test('Apostrophe ultimate test', (t) => {
   const newArray = extract(oldString, { regex: [email, words] })
   t.deepEqual(newArray, ['Some', 'words', 'and', 'a', 'word', 'with', 'a', 'number', 'in', 'it\'s', 'core', 'but', 'single', 'quotes', 'shouldn\'t', 'pass', 'name.nameson@domain.com'])
 })
+
+test('Throw error when not a string', (t) => {
+  const oldString = ['Some', 'words', 'in', 'an', 'array']
+  try {
+    extract(oldString)
+  } catch (e) {
+    t.is(e.message, 'Error: Input is not a string')
+  }
+})
