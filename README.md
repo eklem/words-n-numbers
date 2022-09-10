@@ -5,6 +5,7 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
+[![](https://data.jsdelivr.com/v1/package/npm/words-n-numbers/badge?style=rounded)](https://www.jsdelivr.com/package/npm/words-n-numbers)
 [![Build Status][build-image]][build-url]
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 [![MIT License][license-image]][license-url]
@@ -28,7 +29,7 @@ import { extract, words, numbers, emojis, tags, usernames, email } from ('words-
 ### Browser
 
 ```html
-<script src="words-numbers.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/words-n-numbers/dist/words-n-numbers.umd.min.js"></script>
 
 <script>
   //wnn.extract, wnn.words, wnn.numbers, wnn.emojis, wnn.tags, wnn.usernames, wnn.email available
