@@ -22,7 +22,7 @@ const { extract, words, numbers, emojis, tags, usernames, email } = require('wor
 ### ESM
 
 ```javascript
-import { extract, words, numbers, emojis, tags, usernames, email } from ('words-n-numbers')
+import { extract, words, numbers, emojis, tags, usernames, email } from 'words-n-numbers'
 // extract, words, numbers, emojis, tags, usernames, email available
 ```
 
