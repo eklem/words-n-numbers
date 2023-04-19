@@ -37,42 +37,42 @@ test('1: Add text, test default. 2: Test only emojis. 3: check emojis and text. 
   await page.click('text=Emojis')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['👌😄', '😢'])
+  t.deepEqual(testExtract, ['👌', '😄', '😢'])
 
   // Click Words checkbox and test extracted
   await page.click('input#words')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '👌', '😄', '😢'])
 
   // Click Numbers checkbox and test extracted
   await page.click('input#numbers')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢'])
 
   // Type more text in textarea and test extracted
   await page.click('textarea')
   await page.keyboard.type('\'Send it\'s receipt to name.nameson@domain.com or @namesonn.\' If you do the last, add #ticket as a tag.')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', 'namesonn', 'if', 'you', 'do', 'the', 'last', 'add', 'ticket', 'as', 'a', 'tag'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', 'namesonn', 'if', 'you', 'do', 'the', 'last', 'add', 'ticket', 'as', 'a', 'tag'])
 
   // Click Tags checkbox an test extracted again
   await page.click('input#tags')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', 'namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', 'namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
 
   // Click Username checkbox and test extracted again
   await page.click('input#usernames')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', '@namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name', 'nameson', 'domain', 'com', 'or', '@namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
 
   // Click Email checkbox and test extracted again
   await page.click('input#email')
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
-  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name.nameson@domain.com', 'or', '@namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
+  t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name.nameson@domain.com', 'or', '@namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
 })

@@ -1,6 +1,6 @@
 const words = '\\p{Alpha}+[\'’?]\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+[\'’?]\\p{Alpha}+|\\p{Alpha}+'
 const numbers = '\\p{Number}+'
-const emojis = '\\p{Emoji_Presentation}+'
+const emojis = '\\p{Emoji_Presentation}'
 const tags = '\\B[#][\\p{Alpha}|\\p{Number}]+'
 const usernames = '\\B[@][\\p{Alpha}|\\p{Number}]+'
 const email = '[0-9a-zA-Z!#$%&\'*+-/=?^_`{|}~.]+@[0-9a-zA-Z-.]+[a-zA-Z0-9]'

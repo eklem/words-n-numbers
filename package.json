@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
   "main": "./dist/words-n-numbers.cjs.js",
   "module": "./dist/words-n-numbers.esm.mjs",
@@ -27,7 +27,8 @@
     "extract"
   ],
   "devDependencies": {
-    "batr": "^2.1.8"
+    "batr": "^2.1.8",
+    "rgi-emoji-regex-pattern": "^1.3.1"
   },
   "author": "Espen Klem",
   "license": "MIT",

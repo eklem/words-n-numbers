@@ -100,7 +100,7 @@ test('extract numbers and emojis from string w/ words, number and emoticon', (t)
 test('extract words, numbers and emojis from string w/ words, number and emoticon, to lowercase', (t) => {
   const oldString = 'A ticket to 大阪 costs ¥2000 👌😄😄 😢'
   const newArray = extract(oldString, { regex: [words, numbers, emojis], toLowercase: true })
-  t.deepEqual(newArray, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄😄', '😢'])
+  t.deepEqual(newArray, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😄', '😢'])
 })
 
 test('extract tags', (t) => {

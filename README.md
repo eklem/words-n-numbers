@@ -10,6 +10,24 @@ Inspired by [extractwords](https://github.com/f-a-r-a-z/extractwords)
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 [![MIT License][license-image]][license-url]
 
+## Breaking change
+
+From `v8.0.0` - `emojis`-regular expression now extracts single emojis, so no more "words" formed by several emojis. This because each emoji in a sense are words. You can still make a custom regular expression to grab several emojis in a row as one item with `const customEmojis = '\\p{Emoji_Presentation}'` and then use it as your custom regex.
+
+Meaning that instead of:
+
+```javaScript
+extract('A ticket to 大阪 costs ¥2000 👌😄 😢', { regex: emojis})
+// ['👌😄', '😢']
+```
+
+...you will get:
+
+```javaScript
+extract('A ticket to 大阪 costs ¥2000 👌😄 😢', { regex: emojis})
+// ['👌', '😄', '😢']
+```
+
 ## Initiating
 
 ### CJS
@@ -70,21 +88,21 @@ extract(stringOfWords, { regex: [words, numbers], toLowercase: true })
 ```javaScript
 const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [words, emojis], toLowercase: true })
-// returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌😄', '😢' ]
+// returns [ 'A', 'ticket', 'to', '大阪', 'costs', '👌', '😄', '😢' ]
 ```
 
 ### Combining predefined regex for numbers and emoticons
 ```javaScript
 const stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [numbers, emojis], toLowercase: true })
-// returns [ '2000', '👌😄', '😢' ]
+// returns [ '2000', '👌', '😄', '😢' ]
 ```
 
 ### Combining predefined regex for words, numbers and emoticons, converted to lowercase
 ```javaScript
 cons stringOfWords = 'A ticket to 大阪 costs ¥2000 👌😄 😢'
 extract(stringOfWords, { regex: [words, numbers, emojis], toLowercase: true })
-// returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌😄', '😢' ]
+// returns [ 'a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢' ]
 ```
 
 ### Predefined regex for `#tags`
