@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
   "main": "./dist/words-n-numbers.cjs.js",
   "module": "./dist/words-n-numbers.esm.mjs",

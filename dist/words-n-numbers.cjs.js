@@ -13,7 +13,8 @@ const extract = function (string, options) {
   // Default options object
   const defaultOptions = {
     regex: words,
-    toLowercase: false
+    toLowercase: false,
+    flags: 'gui'
   };
 
   // Populate regex and options objects
@@ -38,7 +39,7 @@ const extract = function (string, options) {
   }
 
   // regex constructor
-  const regex = new RegExp(options.regex, 'giu');
+  const regex = new RegExp(options.regex, options.flags);
 
   // match words (and numbers and emojis)
   let extracted = [];
