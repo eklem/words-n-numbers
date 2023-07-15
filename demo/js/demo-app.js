@@ -43,6 +43,7 @@ const getRegex = function (value) {
   if (value === 'words') { return wnn.words }
   if (value === 'numbers') { return wnn.numbers }
   if (value === 'emojis') { return wnn.emojis }
+  if (value === 'emojisCustom') { return wnn.emojisCustom }
   if (value === 'tags') { return wnn.tags }
   if (value === 'usernames') { return wnn.usernames }
   if (value === 'email') { return wnn.email }

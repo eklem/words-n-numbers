@@ -1,5 +1,5 @@
 const test = require('ava')
-const { extract, words, numbers, emojis, tags, usernames, email } = require('../dist/words-n-numbers.cjs.js')
+const { extract, words, numbers, emojis, emojisCustom, tags, usernames, email } = require('../dist/words-n-numbers.cjs.js')
 
 test('extract words only, default regex and options', t => {
   const oldString = 'I want only words! I told you a 1000000 times'
@@ -170,4 +170,16 @@ test('Throw error when not a string', t => {
   } catch (e) {
     t.is(e.message, 'Error: Input is not a string')
   }
+})
+
+test('extract emojis with standard emoji extraction', t => {
+  const oldString = 'A ticket to 大阪 costs ¥2000 👌😄😄 😢'
+  const newArray = extract(oldString, { regex: emojis })
+  t.deepEqual(newArray, ['👌', '😄', '😄', '😢'])
+})
+
+test('extract emojis with custom emoji extraction', t => {
+  const oldString = 'A ticket to 大阪 costs ¥2000 👌😄😄 😢👩🏽‍🤝‍👨🏻 👩🏽‍🤝‍👨🏻'
+  const newArray = extract(oldString, { regex: emojisCustom, flags: 'gi' })
+  t.deepEqual(newArray, ['👌', '😄', '😄', '😢', '👩🏽‍🤝‍👨🏻', '👩🏽‍🤝‍👨🏻'])
 })

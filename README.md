@@ -126,6 +126,13 @@ extract(stringOfWords, { regex: email, toLowercase: true })
 // returns [ 'bob@bob.com', 'alice.allison@alice123.com', 'some-name.nameson.nameson@domain.org' ]
 ```
 
+### Predefined custom regex for all Unicode emojis
+```javaScript
+const stringOfWords = 'A #ticket to #大阪 costs bob@bob.com, alice.allison@alice123.com, some-name.nameson.nameson@domain.org and @美林 ¥2000 👌😄😄 😢👩🏽‍🤝‍👨🏻 👩🏽‍🤝‍👨🏻'
+extract(stringOfWords, { regex: emojisCustom, flags: 'g' })
+// returns [ '👌', '😄', '😄', '😢', '👩🏽‍🤝‍👨🏻', '👩🏽‍🤝‍👨🏻' ]
+```
+
 ### Custom regex
 Some characters needs to be escaped, like `\`and `'`. And you escape it with a backslash - `\`.
 ```javaScript
@@ -148,6 +155,7 @@ extract(stringOfText, \<options-object\>)
 {
   regex: 'custom or predefined regex',  // defaults to words
   toLowercase: [true / false]             // defaults to false
+  flags: 'gmixsuUAJD' // regex flags, defaults to giu - /[regexPattern]/[regexFlags]
 }
 ```
 
@@ -168,6 +176,7 @@ extract(oldString, { regex: [words, usernames, email] })
 words              // only words, any language <-- default
 numbers            // only numbers
 emojis             // only emojis
+emojisCustom       // only emojis, based on custom emoji extractor from https://github.com/mathiasbynens/rgi-emoji-regex-pattern
 tags               // #tags (any language
 usernames          // @usernames (any language)
 email              // email addresses. Most valid addresses,
