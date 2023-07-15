@@ -2,7 +2,7 @@ const { chromium } = require('playwright')
 const test = require('ava')
 const browserPromise = chromium.launch({
   headless: true
-  // slowMo: 500
+  // ,slowMo: 500
 })
 
 const path = require('path')
@@ -18,7 +18,7 @@ async function pageMacro (t, callback) {
 }
 
 test('1: Add text, test default. 2: Test only emojis. 3: check emojis and text. 4: check emojis, numbers and text. 5: add more text. 6: check tags. 7: check usernames. 8: check email.', pageMacro, async (t, page) => {
-  t.plan(8)
+  t.plan(9)
   const filePath = await path.resolve('./demo/index.html')
   const url = 'file://' + filePath
   let testExtract
@@ -75,4 +75,21 @@ test('1: Add text, test default. 2: Test only emojis. 3: check emojis and text. 
   testExtract = await (page.textContent('#wnn'))
   testExtract = JSON.parse(testExtract)
   t.deepEqual(testExtract, ['a', 'ticket', 'to', '大阪', 'costs', '2000', '👌', '😄', '😢', 'send', 'it\'s', 'receipt', 'to', 'name.nameson@domain.com', 'or', '@namesonn', 'if', 'you', 'do', 'the', 'last', 'add', '#ticket', 'as', 'a', 'tag'])
+
+
+  // Go to ./demo/index.html to reset everything
+  await page.goto(url)
+
+  // Click and fill textarea with two emjojis consisting of several unicodes, checking custom emojis and flags: 'gi'
+  await page.click('#emojisCustom')
+  await page.click('textarea')
+  await page.keyboard.type('👨🏻‍🤝‍👨🏾 👩🏿‍🤝‍👨🏻 ')
+  await page.click('input#flags')
+  await page.keyboard.press('Backspace')
+  await page.keyboard.press('Backspace')
+  await page.keyboard.press('Backspace')
+  await page.keyboard.type('gi')
+  testExtract = await (page.textContent('#wnn'))
+  testExtract = JSON.parse(testExtract)
+  t.deepEqual(testExtract, ['👨🏻‍🤝‍👨🏾', '👩🏿‍🤝‍👨🏻'])
 })

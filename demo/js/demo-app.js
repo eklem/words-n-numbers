@@ -3,6 +3,12 @@ document.getElementById('querytext').oninput = function () {
   extract()
 }
 
+// listen on textarea input
+document.getElementById('flags').oninput = function () {
+  console.log('flags!')
+  extract()
+}
+
 // listen to change on checkboxes
 const checkboxes = document.querySelectorAll('.checkbox')
 checkboxes.forEach(function (checkbox) {
@@ -18,6 +24,10 @@ const extract = function () {
   let queryText = document.getElementById('querytext').value
   console.log(queryText)
 
+  // get flags
+  let flags = document.getElementById('flags').value
+  console.log(flags)
+
   // get names of all checked checkboxes
   const regexesChecked = document.querySelectorAll('.checkbox:checked')
   let regexes = []
@@ -30,7 +40,7 @@ const extract = function () {
   if (regexes.length === 0) {
     regexes = [wnn.words]
   }
-  const regexOption = { regex: regexes, toLowercase: true }
+  const regexOption = { regex: regexes, toLowercase: true, flags: flags }
   queryText = wnn.extract(queryText, regexOption)
 
   // Populate div#wnn with tokenized text

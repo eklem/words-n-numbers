@@ -1,0 +1,10 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('file:///Users/eklem/github_modules/words-n-numbers/demo/index.html');
+  await page.locator('#querytext').click();
+  await page.locator('#querytext').fill('👩🏻‍🤝‍👩🏿');
+  await page.getByLabel('Custsom emojis').check();
+  await page.getByLabel('Flags').click();
+  await page.getByLabel('Flags').fill('gi');
+});
