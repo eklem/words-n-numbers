@@ -61,7 +61,7 @@ A [simple browser demo of wnn](https://eklem.github.io/words-n-numbers/demo/) to
 
 ## Use
 
-The default regex should catch every unicode character from for every language. 
+The default regex should catch every unicode character from for every language. Default regex flags are `giu`. `emojisCustom`-regex won't work with the `u`-flag (unicode).
 
 ### Only words
 ```javaScript
