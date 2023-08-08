@@ -176,7 +176,7 @@ extract(oldString, { regex: [words, usernames, email] })
 words              // only words, any language <-- default
 numbers            // only numbers
 emojis             // only emojis
-emojisCustom       // only emojis, based on custom emoji extractor from https://github.com/mathiasbynens/rgi-emoji-regex-pattern
+emojisCustom       // only emojis. Works wit the `g`-flag, not `giu`. Based on custom emoji extractor from https://github.com/mathiasbynens/rgi-emoji-regex-pattern
 tags               // #tags (any language
 usernames          // @usernames (any language)
 email              // email addresses. Most valid addresses,
