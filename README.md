@@ -171,7 +171,7 @@ extract(oldString, { regex: [email, usernames, words] })
 extract(oldString, { regex: [words, usernames, email] })
 ```
 
-### Predefined regex'es
+### Predefined regexes
 ```javaScript
 words              // only words, any language <-- default
 numbers            // only numbers
@@ -182,6 +182,10 @@ usernames          // @usernames (any language)
 email              // email addresses. Most valid addresses,
                    //   but not to be used as a validator
 ```
+
+### Flags for regexes
+
+All but one regex uses the  `giu`-flag. The one that doesn't is the `emojisCustom` that will need only a `g`-flag. `emojisCustom` is added because the standard `emojis` regex based on `\\p{Emoji_Presentation}` isn't able to grab all emojis. When browsers support `p\{RGI_emoji} under a `giu`-flag the library will be changed.
 
 ### Languages supported
 Supports most languages supported by [stopword](https://github.com/fergiemcdowall/stopword#language-code), and others too. Some languages like Japanese and Chinese simplified needs to be tokenized. May add tokenizers at a later stage.
