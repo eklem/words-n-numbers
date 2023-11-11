@@ -1,6 +1,6 @@
 {
   "name": "words-n-numbers",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "description": "Tokenizing strings of text. Extracting arrays of words and optionally number, emojis, tags, usernames and email addresses from strings. For Node.js and the browser. When you need more than just [a-z] regular expressions.",
   "main": "./dist/words-n-numbers.cjs.js",
   "module": "./dist/words-n-numbers.esm.mjs",
@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/eklem/words-n-numbers.git"
   },
+  "files": [
+    "./dist"
+  ],
   "keywords": [
     "nlp",
     "regex",
